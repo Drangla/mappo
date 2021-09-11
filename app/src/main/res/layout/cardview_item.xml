@@ -13,7 +13,7 @@
             android:id="@+id/cardview_image"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:padding="2dp"/>
+            android:padding="2dp" />
 
             <TextView
                 android:id="@+id/cardview_title"
@@ -21,8 +21,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@id/cardview_image"
+                android:layout_marginLeft="10dp"
                 android:text="Line1"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/black" />
 
@@ -32,6 +33,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/cardview_title"
                 android:layout_toEndOf="@id/cardview_image"
+                android:layout_marginLeft="10dp"
                 android:text="Line2"
                 android:textColor="@color/black"
                 android:textSize="15dp" />
