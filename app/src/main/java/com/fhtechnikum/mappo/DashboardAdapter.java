@@ -16,14 +16,14 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Card
 
     public static class CardViewHolder extends RecyclerView.ViewHolder {
         public ImageView dashboardImageView;
-        public TextView dasboardTextViewTitle;
+        public TextView dashboardTextViewTitle;
         public TextView dashboardTextView1;
 
         //Constructor Innerclass
         public CardViewHolder(@NonNull View itemView) {
             super(itemView);
             dashboardImageView = itemView.findViewById(R.id.cardview_image);
-            dasboardTextViewTitle = itemView.findViewById(R.id.cardview_title);
+            dashboardTextViewTitle = itemView.findViewById(R.id.cardview_title);
             dashboardTextView1 = itemView.findViewById(R.id.cardview_text1);
         }
     }
@@ -44,9 +44,8 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Card
     @Override
     public void onBindViewHolder(@NonNull CardViewHolder holder, int position) {
         CardViewItem currentItem = cardViewItems.get(position);
-
         holder.dashboardImageView.setImageResource(currentItem.getImageResource());
-        holder.dasboardTextViewTitle.setText(currentItem.getCardTextTitle());
+        holder.dashboardTextViewTitle.setText(currentItem.getCardTextTitle());
         holder.dashboardTextView1.setText(currentItem.getCardText1());
     }
 

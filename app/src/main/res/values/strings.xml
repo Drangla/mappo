@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">mappo</string>
+    <string name="insert_btn">insert</string>
+    <string name="remove_btn">remove</string>
 </resources>
