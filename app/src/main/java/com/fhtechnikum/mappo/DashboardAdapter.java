@@ -1,5 +1,6 @@
 package com.fhtechnikum.mappo;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +19,24 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Card
         public ImageView dashboardImageView;
         public TextView dashboardTextViewTitle;
         public TextView dashboardTextView1;
+        public View view;
 
         //Constructor Innerclass
         public CardViewHolder(@NonNull View itemView) {
             super(itemView);
+            view = itemView; // Warum hier extra?
+/*
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(view.getContext(), Appointments.class);
+                    i.putExtra(Appointments.INTENT_KEY, "TEST");
+                    view.getContext().startActivity(i);
+                }
+            });
+*/
+
+
             dashboardImageView = itemView.findViewById(R.id.cardview_image);
             dashboardTextViewTitle = itemView.findViewById(R.id.cardview_title);
             dashboardTextView1 = itemView.findViewById(R.id.cardview_text1);
