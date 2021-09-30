@@ -1,5 +1,6 @@
 package com.fhtechnikum.mappo;
 
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,13 @@ import java.util.ArrayList;
 
 public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.CardViewHolder> {
     private ArrayList<CardViewItem> cardViewItems;
+    Context context;
+
+    //Constructor outer class
+    public DashboardAdapter(ArrayList<CardViewItem> cardViewItems, Context mainActivityContext) {
+        this.cardViewItems = cardViewItems;
+        this.context = mainActivityContext;
+    }
 
     public static class CardViewHolder extends RecyclerView.ViewHolder {
         public ImageView dashboardImageView;
@@ -22,37 +30,30 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardAdapter.Card
         public View view;
 
         //Constructor Innerclass
-        public CardViewHolder(@NonNull View itemView) {
+        public CardViewHolder(@NonNull View itemView, Context context) {
             super(itemView);
             view = itemView; // Warum hier extra?
-/*
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent i = new Intent(view.getContext(), Appointments.class);
-                    i.putExtra(Appointments.INTENT_KEY, "TEST");
-                    view.getContext().startActivity(i);
-                }
-            });
-*/
-
-
             dashboardImageView = itemView.findViewById(R.id.cardview_image);
             dashboardTextViewTitle = itemView.findViewById(R.id.cardview_title);
             dashboardTextView1 = itemView.findViewById(R.id.cardview_text1);
-        }
-    }
 
-    //Constructor outer class
-    public DashboardAdapter(ArrayList<CardViewItem> cardViewItems) {
-        this.cardViewItems = cardViewItems;
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(context, Appointments.class);
+                    i.putExtra(Appointments.INTENT_KEY, "TEST");
+                    context.startActivity(i);
+                }
+            });
+
+        }
     }
 
     @NonNull
     @Override
     public CardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_item, parent, false);
-        CardViewHolder cvh = new CardViewHolder(v);
+        CardViewHolder cvh = new CardViewHolder(v, this.context);
         return cvh;
     }
 

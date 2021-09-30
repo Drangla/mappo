@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void insertDashboardItem(int position) {
-        //GET Aufruf für neue Daten, if abfragen: falls daten schon vorhanden
+        //GET Aufruf für neue Daten
         cardViewList.add(position, new CardViewItem(R.drawable.ic_android_black_24dp, "added1", "added2"));
 
     }
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         cardViewList.remove(position);
     }
 
-    public void createCardViewList () {
+    public void createCardViewList() {
         cardViewList = new ArrayList<>();
         //Text durch String Ressourcen oder Variablen ersetzen!!
         cardViewList.add(new CardViewItem(R.drawable.ic_android_black_24dp, "Text1", "Text2"));
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         dashboardRecyclerView = findViewById(R.id.dashboard);
         //dashboardRecyclerView.setHasFixedSize(true); // when Recyclerview wont change in size, no matter how many items
         dashboardLayoutManager = new LinearLayoutManager(this);
-        dashboardRecyclerAdapter = new DashboardAdapter(cardViewList);
+        dashboardRecyclerAdapter = new DashboardAdapter(cardViewList, MainActivity.this);  //pass the context too for Intent
         dashboardRecyclerView.setLayoutManager(dashboardLayoutManager);
         dashboardRecyclerView.setAdapter(dashboardRecyclerAdapter);
     }
